@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+  <title>Registration Form</title>
+</head>
+
+<body>
+  <div id="form-title">
+    <h1>
+      SEYI MAKINDE SCHOLARSHIP SCHEME
+    </h1>
+    <h2>BURSARY APPLICATION FORM</h2>
+    <h3 id="caution">PLEASE MAKE SURE YOU CAREFULLY INPUT THE CORRECT DETAILS AS YOU ONLY HAVE ONE SUBMISSION CHANCE</h3>
+  </div>
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Names</legend>
+
+      <div>
+        <label for="nin"> NIN:
+          {{ form.nin }}
+          <span class="error">{{ form.errors.nin }}</span>
+        </label>
+      </div>
+      <div>
+        <label for="last_name"> Surname:
+          {{ form.surname }}
+        </label>
+      </div>
+
+      <div>
+        <label for="first_name">First Name:
+          {{ form.first_name }}
+        </label>
+      </div>
+
+      <div>
+        <label for="middle_name"> Middle Name:
+          {{ form.middle_name }}
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Mailing Address</legend>
+
+      <div>
+        <label for="city">City:
+          {{ form.city }}
+        </label>
+
+        <label for="lga">Local Government:
+          {{ form.lga }}
+        </label>
+      </div>
+      <div>
+        <label for="tel">Telephone Number:
+          {{ form.tel }}
+        </label>
+      </div>
+      <div>
+        <label for="email">E-Mail Address:
+          {{ form.email }}
+          <span class="error">{{ form.errors.email }}</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal Information</legend>
+      <div>
+        <label for="sex">Sex:
+          {{ form.sex }}
+        </label>
+      </div>
+      <div>
+        <label for="dob">Date of Birth:
+          {{ form.date_of_birth }}
+        </label>
+      </div>
+      <div>
+        <label for="place_of_birth">Place of birth:
+          {{ form.place_of_birth }}
+        </label>
+      </div>
+      <div>
+        <label for="lga_of_origin">Local Government of Origin:
+          {{ form.lga_of_origin }}
+        </label>
+      </div>
+      <div>
+        <label for="certificate_of_origin">Certificate of Orign:
+          {{ form.certificate_of_origin }}
+        </label>
+      </div>
+      <div>
+        <label for="signature">Signaure:
+          {{ form.signature }}
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Academic Record</legend>
+      <div>
+        <label for="secondary_school">Secondary School
+          {{ form.secondary_school }}
+        </label>
+        <label for="graduation_year">Graduation Year:
+          {{ form.graduation_year }}
+        </label>
+      </div>
+      <div>
+        <label for="current_institution">Current Institution:
+          {{ form.current_institution }}
+        </label>
+        <label for="year_of_admission">Year of Admission:
+          {{ form.year_of_admission }}
+        </label>
+        <label for="id_card">ID Card:
+          {{ form.id_card }}
+        </label>
+      </div>
+      <div>
+        <label for="course_of_study">Course of study:
+          {{ form.course_of_study }}
+        </label>
+        <label for="present_level">Present Level:
+          {{ form.present_level }}
+        </label>
+        <label for="gpa">GPA:
+          {{ form.gpa }}
+        </label>
+        <label for="transcript">Transcript:
+          {{ form.transcript }}
+        </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Family Background</legend>
+      <h2>Mother</h2>
+      <div>
+        <label for="mother_name">Full Name:
+          {{ form.mother_name }}
+        </label>
+      </div>
+      <div>
+        <label for="mother_address">Address:
+          {{ form.mother_address }}
+        </label>
+      </div>
+      <div>
+        <label for="mother_occupation">Occupation:
+          {{ form.mother_occupation }}
+        </label>
+        <label for="mother_tel">Phone No:
+          {{ form.mother_tel }}
+        </label>
+      </div>
+
+      <h2>Father</h2>
+      <div>
+        <label for="fatherr_name">Full Name:
+          {{ form.father_name }}
+        </label>
+      </div>
+      <div>
+        <label for="father_address">Address:
+          {{ form.father_address }}
+        </label>
+      </div>
+      <div>
+        <label for="father_occupation">Occupation:
+          {{ form.father_occupation }}
+        </label>
+        <label for="father_tel">Phone No:
+          {{ form.father_tel }}
+        </label>
+      </div>
+
+      <h2>Legal Guardian (If other than mother or father)</h2>
+      <div>
+        <label for="guardian_name">Full Name:
+          {{ form.guardian_name }}
+        </label>
+      </div>
+      <div>
+        <label for="guardian_address">Address:
+          {{ form.guardian_address }}
+        </label>
+      </div>
+      <div>
+        <label for="guardian_occupation">Occupation:
+          {{ form.guardian_occupation }}
+        </label>
+        <label for="guardian_tel">Phone No:
+          {{ form.guardian_tel }}
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>HOD</legend>
+      <label for="attestation_letter">Attestation letter
+        {{ form.attestation_letter }}
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Attestation</legend>
+      <label for="attestation">
+        <span class="error">{{ form.errors.attestation }}</span>
+        {{ form.attestation }}
+        I certify that the information provided on this application is true to the best of my knowledge and I understand that omission or
+        misrepresentation of facts of failure to furnish information to the office of the board at <span><b>OMI TITUN HOUSE</b></span> will
+        automatically invalidate consideration for this application.
+      </label>
+    </fieldset>
+    <input type="submit" value="SUBMIT APPLICATION" id="submit">
+    
+  </form>
+
+  <script src="{% static 'scripts/scripts.js' %}"></script>
+</body>
+
+</html>
