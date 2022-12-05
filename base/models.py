@@ -60,7 +60,7 @@ class Profile(models.Model):
   attestation = models.BooleanField(default=False)
   
   def __str__(self):
-    return f'{self.first_name} - {self.surname}'
+    return f'{self.first_name} {self.surname} {self.nin}'
   
   class Meta:
     ordering = ['surname']
