@@ -1,7 +1,7 @@
 from base import *
 import os
 
-DEBUG = False
+DEBUG = True
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 ALLOWED_HOSTS = ["scholarshipform.up.railway.app"]
