@@ -3,4 +3,4 @@ __pycache__
 *.sqlite3
 .pyc
 development.py
-README.md
+
