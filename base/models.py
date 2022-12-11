@@ -1,4 +1,5 @@
 from django.db import models
+from django_resized import ResizedImageField
 
 class Profile(models.Model):
   SEX_CHOICE = (
@@ -23,19 +24,19 @@ class Profile(models.Model):
   date_of_birth = models.DateField()
   place_of_birth = models.CharField(max_length=200)
   lga_of_origin = models.ForeignKey("LGA", on_delete=models.CASCADE, related_name="lga_of_origin")
-  certificate_of_origin = models.ImageField(upload_to='certificates_of_origin')
-  signature = models.ImageField(upload_to='signatures')
+  certificate_of_origin = ResizedImageField(size=[500, None], upload_to='certificates_of_origin')
+  signature = ResizedImageField(size=[500, None], upload_to='signatures')
   
   # ACADEMIC RECORD
   secondary_school = models.CharField(max_length=250)
   graduation_year = models.IntegerField()
   current_institution = models.CharField(max_length=100)
   year_of_admission = models.IntegerField()
-  id_card = models.ImageField(upload_to='id_cards')
+  id_card = ResizedImageField(size=[500, None], upload_to='id_cards')
   course_of_study = models.CharField(max_length=100)
   present_level = models.IntegerField()
   gpa = models.FloatField()
-  transcript = models.ImageField(upload_to='transcripts', null=True, blank=True)
+  transcript = ResizedImageField(size=[500, None], upload_to='transcripts', null=True, blank=True)
   
   # FANMILY BACKGROUND
   mother_name = models.CharField(max_length=100, null=True, blank=True)
@@ -54,7 +55,7 @@ class Profile(models.Model):
   guardian_tel = models.BigIntegerField(null=True, blank=True)
   
   # HOD 
-  attestation_letter = models.ImageField('attestation_letters')
+  attestation_letter = ResizedImageField(size=[500, None], upload_to='attestation_letters')
   
   # STUDENT ATTESTATION
   attestation = models.BooleanField(default=False)
